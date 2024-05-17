@@ -17,30 +17,6 @@ mongoose.connect(`mongodb+srv://${DB_USER}:${DB_PASS}@${DB_HOST}/${DB_NAME}?retr
 
         const Pessoa = mongoose.model('pessoa', {nome: String})
 
-        const ListaPessoa = [
-            {
-            id: 1,
-            nome:"Leres",
-            idade: 22,
-            email:"leres@exemple.com"
-        },
- {
-    id: 2,
-    nome:"Eres",
-    idade: 15,
-    email:"Eres@exemple.com"
- },
-{
-    id: 3,
-    nome:"Ires",
-    idade: 12,
-    email:"Ires@exemple.com"
-}]
-
-app.get('/pessoas', (req,res) =>{
-    res.json(ListaPessoa)
-})
-
 app.get('/pessoas', async(req, res) =>{
     const pessoas = await Pessoa.find()
     res.json(pessoas)

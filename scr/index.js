@@ -14,6 +14,7 @@ mongoose.connect(`mongodb+srv://${DB_USER}:${DB_PASS}@${DB_HOST}/${DB_NAME}?retr
     .catch(err => console.log('Falha ao conectar ao MongoDB', err))
         
         app.use(express.json())
+        
 
         const Pessoa = mongoose.model('pessoa', {nome: String})
 
